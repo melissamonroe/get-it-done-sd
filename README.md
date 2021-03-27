@@ -44,6 +44,10 @@ Show get it done app, effectiveness or ineffectiveness, based on location, revea
 
 This information may help management determine if certain offices don’t have enough staff, if staff cannot keep up consistently, if staff can be moved (temporarily) to other areas to assist, or if more funds need to be allocated, possibly to certain areas during certain times of the year.  
 
+## Example Dashboards
+
 ![Dashboard Example](images/dash-example1.png)
+
 ![Dashboard Example](images/dash-example2.png)
+
 ![Dashboard Example](images/dash-example3.png)
