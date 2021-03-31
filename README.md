@@ -42,6 +42,9 @@ Show get it done app, effectiveness or ineffectiveness, based on location, revea
     - Are there spikes/dips?  Certain areas?  Certain times of year?
     - Check for excessive duplicate entries
 
+- Identify outliers - high/low number of ticket in any category 
+- Lead to action: what action? -> goal reduce number of tickets by 10% in specific category in specific location
+
 This information may help management determine if certain offices don’t have enough staff, if staff cannot keep up consistently, if staff can be moved (temporarily) to other areas to assist, or if more funds need to be allocated, possibly to certain areas during certain times of the year.  
 
 ## Example Dashboards
