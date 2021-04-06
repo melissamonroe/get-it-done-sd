@@ -1,5 +1,5 @@
-// Creating map object
-var myMap = L.map("map", {
+// Creating San Diego map object
+var map = L.map("map", {
     center: [32.7157, -117.1611],
     zoom: 11
 });
@@ -12,7 +12,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1,
     id: "mapbox/streets-v11",
     accessToken: API_KEY
-}).addTo(myMap);
+}).addTo(map);
 
 // Store API query variables
 /* var baseURL = "https://data.cityofnewyork.us/resource/fhrw-4uyv.json?";
@@ -46,6 +46,6 @@ d3.json(url, function(response) {
     }
 
     // Add our marker cluster layer to the map
-    myMap.addLayer(markers);
+    map.addLayer(markers);
 
 }); */
