@@ -13,7 +13,7 @@ import pytz
 from django.utils import timezone
 from time import sleep
 import random
-
+import operator
 
 #################################################
 # Flask Setup
@@ -26,11 +26,16 @@ app = Flask(__name__)
 mongo = pymongo.MongoClient(config.mongo_conn, maxPoolSize=50, connect=False)
 db = pymongo.database.Database(mongo, config.db_name)
 col = pymongo.collection.Collection(db, 'sandiego')
+collection_summary = pymongo.collection.Collection(db, 'summary_counts')
+
 
 # create route that renders index.html template
 @app.route("/")
 def home():
-    return render_template("index.html")
+    # Find one record of data from the mongo database
+    summary_data = collection_summary.find()
+
+    return render_template("index.html", summary=summary_data)
 
 @app.route("/api/data")
 def data():
@@ -67,6 +72,7 @@ def daterequested(year):
     # results = json.loads(dumps(col.find(filter=filter)))
 
     result = col.find(filter=filter)
+    
     date_requested_count = {}  
 
     for SR in result:    
@@ -80,5 +86,13 @@ def daterequested(year):
 
     return jsonify(date_requested_count)    
 
+@app.route("/api/summary/<year>")
+def summary(year):  
+    filter= {"year":int(year)}
+    
+    results = json.loads(dumps(collection_summary.find(filter=filter)))
+    
+    return jsonify(results)   
+
 if __name__ == '__main__':
-    app.run(debug=True, port=5005)
+    app.run(debug=True, port=5012)
