@@ -14,11 +14,13 @@ from django.utils import timezone
 from time import sleep
 import random
 import operator
+from flask_cors import CORS
 
 #################################################
 # Flask Setup
 #################################################
 app = Flask(__name__)
+CORS(app)
 
 #################################################
 # Database Setup
@@ -32,10 +34,11 @@ collection_summary = pymongo.collection.Collection(db, 'summary_counts')
 # create route that renders index.html template
 @app.route("/")
 def home():
-    # Find one record of data from the mongo database
-    summary_data = collection_summary.find()
+    return render_template("index.html")
 
-    return render_template("index.html", summary=summary_data)
+@app.route("/map")
+def map():
+    return render_template("map.html")
 
 @app.route("/api/data")
 def data():
@@ -50,7 +53,6 @@ def daterequested(year):
     except ValueError:
         # Handle the exception
         "Invalid Year"
-
 
     local = pytz.timezone("America/Los_Angeles")
     dt_start = datetime.strptime(str(year_int) + "-1-1 00:00:00", "%Y-%m-%d %H:%M:%S")
@@ -68,23 +70,10 @@ def daterequested(year):
             '$gte': dt_start_utc, 
             '$lt': dt_end_utc
         }
-    }
-    # results = json.loads(dumps(col.find(filter=filter)))
+    }    
+    results = json.loads(dumps(col.find(filter=filter).limit(10000).sort("time", -1)))         
 
-    result = col.find(filter=filter)
-    
-    date_requested_count = {}  
-
-    for SR in result:    
-        if 'date_requested' in SR:            
-            date_requested_month = SR['date_requested'].month     
-            if (date_requested_month in date_requested_count):
-                date_requested_count[date_requested_month] += 1        
-            else:
-                date_requested_count[date_requested_month] = 1     
-
-
-    return jsonify(date_requested_count)    
+    return jsonify(results)    
 
 @app.route("/api/summary/<year>")
 def summary(year):  
@@ -94,5 +83,6 @@ def summary(year):
     
     return jsonify(results)   
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5012)
+if __name__ == '__main__':    
+    app.run(debug=True, port=5102)
+  

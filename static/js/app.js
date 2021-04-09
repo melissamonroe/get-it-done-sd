@@ -1,4 +1,3 @@
-
 d3.selectAll("body").on("change", populateDashboard);
 
 
@@ -50,8 +49,25 @@ function populateDashboard() {
     chart_council_dist_html = "<iframe id='bar-count' style='background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);' width='100%' height='480' src='" + chart_url_council_dist + "'></iframe>"
     d3.select("#bar-plot-council-dist").html(chart_council_dist_html)
 
+    map_html = "<iframe src='http://127.0.0.1:5500/pages/index.html?" + year + "' height='600px' width='100%' title='Service Request Cluster Map'></iframe>";
+    d3.select("#map").html(map_html)
+  
+    d3.select("#total_requested").html("<span>" + response[0].total_requested + "</span>")
+    d3.select("#total_closed").html("<span>" + response[0].total_closed + "</span>")
+    d3.select("#percent_closed").html("<span>" + (parseFloat(response[0].percent_closed)*100).toFixed(2).toString() + "%</span>")
+    d3.select("#average_case_age").html("<span>" + parseFloat(response[0].average_case_age_days).toFixed(2).toString() + "</span>")
+
   });
 }
 
 
 populateDashboard();
+
+
+
+
+
+
+
+
+
