@@ -7,47 +7,45 @@
 City of San Diego Leadership
 
 ### Why?
-Show get it done app, effectiveness or ineffectiveness, based on location, reveal areas where resources could be allocated or reallocated based on need/vol of cases
+Show Get It Done (GID) app, effectiveness and performance based on location, reveal areas where resources could be allocated or reallocated based on need or volume of cases.
 
 ### What are we trying to show with the data
 
 - Ticket count - Most volume category GID tickets
-- Location (lat lon - leaflet map)
+- Status (over time)
+- Categories - type of ticket over time and by location / council district
+- Show volume of tickets over time
+- Summary of open/closed tickets in date range
+- Length in days to close a ticket on average per category
+- Drop down selector to filter data more granularly 
 - Toggle heat map (layer) and markers layer (lat, lon) of get it done requests
 - response time, open/close delta
-- Status (overtime)
-- Categories - type of ticket overtime and location
-- overtime volume of tickets, line charts overtime, summary of - open tickets, closed tickets in date range
-- How long to close a ticket on average per category
 - Map selector to populate data charts
-- Drop down selector to filter data more granularly 
-- Bonus: pull in census data to show demographics, etc for different area codes
-
 
 ## Questions we may be able to answer:
 
 - Volume of tickets by category by year / quarter / area
-    - Is volume of tickets evenly distributed by area?
+    - Is volume of tickets evenly distributed by council district?
     - Do certain areas have a noticeably smaller or larger number of tickets in any category?
     - Is the volume of tickets steady or are there dips/spikes?
-    - Are spikes occurring during certain times of the year? Certain areas?
-    - Check for excessive duplicate entries
-
-- Performance
-    - Average days from open to close
+    - Are dips/spikes occurring during certain times of the year? Certain areas?
+    
+- Performance indicators
+    - Average number of days from open to close by category, council district vs overall
     - Is average time to resolve a ticket same across categories? Across council districts?
-    - Are there spikes/dips?  Certain areas?  Certain times of year?
-    - Check for excessive duplicate entries
+    - Are there dips/spikes?  Certain areas?  Certain times of year?
 
 - Identify outliers - high/low number of ticket in any category 
 - Lead to action: what action? -> goal reduce number of tickets by 10% in specific category in specific location
 
-This information may help management determine if certain areas don’t have enough staff, if staff cannot keep up consistently, if staff can be moved (temporarily) to other areas to assist, or if more funds need to be allocated, possibly to certain areas during certain times of the year.  
+This information may help leadership determine if certain areas lack resources, if resources are sufficient but unable to keep up for other reasons, if resources can be moved (temporarily) to other areas to assist, or if more resources need to be allocated, possibly to certain areas during certain times of the year.  
+
+Additional analysis beyond the scope of this dashboard may have to be performed to determine cause and effect of performance issues.
 
 ## Example Dashboards
 
-![Dashboard Example](images/dash-example1.png)
+![Dashboard Example](static/images/dash-example1.png)
 
-![Dashboard Example](images/dash-example2.png)
+![Dashboard Example](static/images/dash-example2.png)
 
-![Dashboard Example](images/dash-example3.png)
+![Dashboard Example](static/images/dash-example3.png)
