@@ -93,18 +93,29 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a class="" href="index.html">
+                        <a class="" href="">
                             <i class="icon_house_alt"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a class="" href="#bubble-plot">
+                        <a class="" href="#main-content">
                             <i class="icon_circle-empty"></i>
-                            <span>Charts & Plots</span>
+                            <span>Summary</span>
                         </a>
                     </li>
-
+                    <li>
+                        <a class="" href="#map">
+                            <i class="icon_map"></i>
+                            <span>Map</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="/councildistricts">
+                            <i class="icon_map"></i>
+                            <span>Council Districts</span>
+                        </a>
+                    </li>                    
                 </ul>
                 <!-- sidebar menu end-->
             </div>
@@ -186,9 +197,9 @@
                                 <h2>
 
                                     <select id="selYear" style="margin: 8px;">
-                                    <option value="2021">2021 YTD</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
+                                        <option value="2021">2021 YTD</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
                                     </select>
                                 </h2>
 
@@ -258,6 +269,26 @@
                                 </div>
                             </div>
                             <div class="panel-body">
+                                <div class="map-filter">
+                                    <span>Service Name</span>
+                                    <select id="selServiceName">
+                                        <option value="All">All</option>
+                                    </select>
+                                </div>  
+                                <div class="map-filter">
+                                    <span>Limit</span>
+                                    <select id="selMapLimit">
+                                        <option value="1000">1000</option>
+                                        <option value="2000">2000</option>
+                                        <option value="5000">5000</option>
+                                        <option value="7000">7000</option>
+                                        <option value="10000">1000</option>
+                                    </select>
+                                </div>
+    
+
+                        
+
                                 <!---- MAP ----->
                                 <div id="map">
                                     
@@ -283,7 +314,8 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div>                    
+
 
                 </div>
 

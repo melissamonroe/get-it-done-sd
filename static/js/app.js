@@ -1,13 +1,31 @@
 d3.selectAll("body").on("change", populateDashboard);
 
+function populateServicesNames() {
+  url_servicenames = "api/servicenames";
+  d3.json(url_servicenames).then(function(response) {
+    console.log(response)
+    var serviceNameArr = response
+    // select inputs 
+    var inputElementDate = d3.select("#selServiceName");
+
+    // auto populate available filter days and add blank option to search without date filter
+    serviceNameArr.forEach(servicename => {
+         inputElementDate.append('option').text(servicename);
+    });
+  });
+
+
+
+  
+}
 
 function populateDashboard() {
   console.log("loading summary data...")  
   
   // Use D3 to select the dropdown menu
-  var dropdownMenu = d3.select("#selYear");
+  var CB_Year = d3.select("#selYear");
   // Assign the value of the dropdown menu option to a variable
-  var year = dropdownMenu.node().value;
+  var year = CB_Year.node().value;
 
   console.log(year);
   
@@ -49,7 +67,22 @@ function populateDashboard() {
     chart_council_dist_html = "<iframe id='bar-count' style='background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);' width='100%' height='480' src='" + chart_url_council_dist + "'></iframe>"
     d3.select("#bar-plot-council-dist").html(chart_council_dist_html)
 
-    map_html = "<iframe src='http://127.0.0.1:5500/pages/index.html?" + year + "' height='600px' width='100%' title='Service Request Cluster Map'></iframe>";
+    var sr_name = "All"
+    var limit = 1000
+    
+    // Use D3 to select the dropdown menu
+    var CB_SRName = d3.select("#selServiceName");
+    // Assign the value of the dropdown menu option to a variable
+    sr_name = CB_SRName.node().value;
+    // Use D3 to select the dropdown menu
+    var CB_Limit = d3.select("#selMapLimit");
+    // Assign the value of the dropdown menu option to a variable
+    limit = CB_Limit.node().value;
+    console.log(year, sr_name, limit);
+  
+
+
+    map_html = "<iframe src='http://127.0.0.1:5500/pages/index.html?year=" + year + "&name=" + sr_name + "&limit=" + limit + "' height='600px' width='100%' title='Service Request Cluster Map'></iframe>";
     d3.select("#map").html(map_html)
   
     d3.select("#total_requested").html("<span>" + response[0].total_requested + "</span>")
@@ -60,9 +93,13 @@ function populateDashboard() {
   });
 }
 
+function init() {
+  populateServicesNames();
+  populateDashboard();
+  
+};
 
-populateDashboard();
-
+init(); 
 
 
 

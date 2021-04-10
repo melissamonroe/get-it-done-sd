@@ -36,23 +36,26 @@ collection_summary = pymongo.collection.Collection(db, 'summary_counts')
 def home():
     return render_template("index.html")
 
-@app.route("/map")
-def map():
-    return render_template("map.html")
+@app.route("/councildistricts")
+def councildistricts():  
+  return render_template("councildistricts.html")
 
 @app.route("/api/data")
 def data():
     results = json.loads(dumps(col.find().limit(500).sort("time", -1)))   
     return jsonify(results)    
 
-@app.route("/api/daterequested/<year>")
-def daterequested(year):    
+@app.route("/api/daterequested/<year>!<name>!<limit>")
+def daterequested(year, name, limit):    
     year_int = 2021
+    limit_int = 1000
     try:
-        year_int = int(year)        
+        year_int = int(year)    
+        limit_int = int(limit)    
     except ValueError:
         # Handle the exception
-        "Invalid Year"
+        "Invalid Year"    
+    
 
     local = pytz.timezone("America/Los_Angeles")
     dt_start = datetime.strptime(str(year_int) + "-1-1 00:00:00", "%Y-%m-%d %H:%M:%S")
@@ -64,14 +67,22 @@ def daterequested(year):
     dt_end_utc = dt_end_local.astimezone(pytz.utc)
     
     print(dt_start_utc, dt_end_utc)
-
-    filter={
-        'date_requested': {
-            '$gte': dt_start_utc, 
-            '$lt': dt_end_utc
+    if name != "All":    
+        filter={
+            'date_requested': {
+                '$gte': dt_start_utc, 
+                '$lt': dt_end_utc
+            },
+            'service_name':name
         }
-    }    
-    results = json.loads(dumps(col.find(filter=filter).limit(10000).sort("time", -1)))         
+    else:
+        filter={
+            'date_requested': {
+                '$gte': dt_start_utc, 
+                '$lt': dt_end_utc
+            }
+        }    
+    results = json.loads(dumps(col.find(filter=filter).limit(limit_int).sort("time", -1)))         
 
     return jsonify(results)    
 
@@ -81,7 +92,17 @@ def summary(year):
     
     results = json.loads(dumps(collection_summary.find(filter=filter)))
     
+    return jsonify(results)  
+
+@app.route("/api/servicenames")
+def servicenames():  
+    
+    results = json.loads(dumps(col.distinct("service_name")))
+    
     return jsonify(results)   
+
+
+
 
 if __name__ == '__main__':    
     app.run(debug=True, port=5102)
