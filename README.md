@@ -49,6 +49,6 @@ Additional analysis beyond the scope of this dashboard may have to be performed 
 
 ![Dashboard concept](static/images/wireframe1.png)
 
-![Dashboard Example](static/images/wireframe2.png)
+![Dashboard concept](static/images/wireframe2.png)
 
-![Dashboard Preview](git-it-on-preview.gif)
+![Dashboard preview](static/images/git-it-on-preview.gif)
