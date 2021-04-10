@@ -36,9 +36,9 @@ collection_summary = pymongo.collection.Collection(db, 'summary_counts')
 def home():
     return render_template("index.html")
 
-@app.route("/map")
-def map():
-    return render_template("map.html")
+@app.route("/councildistricts")
+def councildistricts():  
+  return render_template("councildistricts.html")
 
 @app.route("/api/data")
 def data():
@@ -100,6 +100,8 @@ def servicenames():
     results = json.loads(dumps(col.distinct("service_name")))
     
     return jsonify(results)   
+
+
 
 
 if __name__ == '__main__':    
