@@ -186,9 +186,9 @@
                                 <h2>
 
                                     <select id="selYear" style="margin: 8px;">
-                                    <option value="2021">2021 YTD</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
+                                        <option value="2021">2021 YTD</option>
+                                        <option value="2020">2020</option>
+                                        <option value="2019">2019</option>
                                     </select>
                                 </h2>
 
@@ -258,6 +258,26 @@
                                 </div>
                             </div>
                             <div class="panel-body">
+                                <div class="map-filter">
+                                    <span>Service Name</span>
+                                    <select id="selServiceName">
+                                        <option value="All">All</option>
+                                    </select>
+                                </div>  
+                                <div class="map-filter">
+                                    <span>Limit</span>
+                                    <select id="selMapLimit">
+                                        <option value="1000">1000</option>
+                                        <option value="2000">2000</option>
+                                        <option value="5000">5000</option>
+                                        <option value="7000">7000</option>
+                                        <option value="10000">1000</option>
+                                    </select>
+                                </div>
+    
+
+                        
+
                                 <!---- MAP ----->
                                 <div id="map">
                                     
@@ -283,7 +303,8 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div>                    
+
 
                 </div>
 

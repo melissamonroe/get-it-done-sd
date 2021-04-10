@@ -1239,6 +1239,18 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 }
 
 
+/* MBM */
+.map-filter {
+    float:left; height:60px; padding:10px
+}
+.map-filter span {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.6em;    
+}
+#selServiceName {
+    width: 300px;
+}
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 
