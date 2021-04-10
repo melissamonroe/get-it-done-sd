@@ -94,6 +94,14 @@ def summary(year):
     
     return jsonify(results)  
 
+@app.route("/api/cdSummary/<district>")
+def cdSummary(district):
+    filter= {"district":int(district)}
+
+    results = json.loads(dumps(collection_summary.find(filter=filter)))
+
+    return jsonify(results)
+
 @app.route("/api/servicenames")
 def servicenames():  
     
