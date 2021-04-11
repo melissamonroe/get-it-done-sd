@@ -27,7 +27,7 @@ function populateDistricts() {
     d3.select("#cd-bar-plot").html(chart_html)
 
     // bar chart count by council district
-    var chart_url_council_dist = response[0].chart_url_council_dist
+    var chart_url_council_dist = response[0].chart_url_cd_average_case_length;
     chart_council_dist_html = "<iframe id='bar-count' style='background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);' width='100%' height='480' src='" + chart_url_council_dist + "'></iframe>"
     d3.select("#bar-plot-council-dist").html(chart_council_dist_html)
 
