@@ -17,7 +17,7 @@ L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 const urlParams = new URLSearchParams(window.location.search);
 
 // Store API query variables
-var baseURL = "http://127.0.0.1:5102/api/daterequested/";
+var baseURL = "http://127.0.0.1:5104/api/daterequested/";
 var year = urlParams.get('year');
 var sr_name = "!" + urlParams.get('name');
 var limit = "!" + urlParams.get('limit');
