@@ -1,6 +1,15 @@
 # City of San Diego Get it Done Dashboard Project
 ## Team git-it-on
 
+## INSTRUCTIONS FOR RUNNING THE APP
+The following instructions for running the app are provided in the order in which they should be done:
+1) Under pages/static/js, create a config.js file that contains this line:
+const API_KEY = "<YOUR API KEY HERE!>";
+
+2) Under src, add the config.py file that we have provided to you
+3) From VScode, open page/index.html with live server
+4) Run app.py
+
 ## Project Description
 
 ### Audience
