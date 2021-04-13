@@ -39,34 +39,34 @@ d3.json(url, function(response) {
       lat = response[i]["lat"]
       lng = response[i]["lng"]
       
-      var details = "service_request_id: " + response[i]["service_request_id"];
+      var details = "Service Request ID: " + response[i]["service_request_id"];
 
       if (response[i]["date_requested"]) {
-        details += "<br>date_requested: " + response[i]["date_requested"] 
+        details += "<br>Date Requeste: " + response[i]["date_requested"] 
         console.log(response[i]["date_requested"]);
       } if (response[i]["case_age_days"]) { 
-        details += "<br>case_age_days: " + response[i]["case_age_days"] 
+        details += "<br>Case Age (days): " + response[i]["case_age_days"] 
       } if (response[i]["service_name"]) {
-        details += "<br>service_name: " + response[i]["service_name"] 
+        details += "<br>Service Name: " + response[i]["service_name"] 
       } if (response[i]["case_record_type"]) {
-        details += "<br>case_record_type: " + response[i]["case_record_type"] 
+        details += "<br>Record Type: " + response[i]["case_record_type"] 
       } if (response[i]["date_closed"]) {
-        details += "<br>date_closed: " + response[i]["date_closed"] 
+        details += "<br>Date Closed: " + response[i]["date_closed"] 
         console.log(response[i]["date_closed"]);
       } if (response[i]["status"]) {
-        details += "<br>status: " + response[i]["status"] 
+        details += "<br>Status: " + response[i]["status"] 
       } if (response[i]["street_address"]) {
-        details += "<br>street_address: " + response[i]["street_address"] 
+        details += "<br>Street Address: " + response[i]["street_address"] 
       } if (response[i]["council_district"]) {
-        details += "<br>council_district: " + response[i]["council_district"] 
+        details += "<br>Council District: " + response[i]["council_district"] 
       } if (response[i]["comm_plan_code"]) {
-        details += "<br>comm_plan_code: " + response[i]["comm_plan_code"] 
+        details += "<br>Community Plan Code: " + response[i]["comm_plan_code"] 
       } if (response[i]["comm_plan_name"]) {
-        details += "<br>comm_plan_name: " + response[i]["comm_plan_name"] 
+        details += "<br>Community Plan Name: " + response[i]["comm_plan_name"] 
       } if (response[i]["case_origin"]) {
-        details += "<br>case_origin: " + response[i]["case_origin"] 
+        details += "<br>Origin: " + response[i]["case_origin"] 
       } if (response[i]["public_description"]) {
-        details += "<br>public_description: " + response[i]["public_description"] 
+        details += "<br>Description: " + response[i]["public_description"] 
       } if (response[i]["media_url"]) {
         details += "<img src='" + response[i]["media_url"] + "' style='height:200px;float:right'/>";
       }
