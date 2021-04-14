@@ -12,14 +12,25 @@ const API_KEY = "<YOUR MAPBOX API KEY HERE!>";
 
 ## Project Description
 
-### Audience
+### Intended Audience:
 City of San Diego Leadership
 
-### Goal?
-Provide a dynamic dashboard for City of San Diego leadership
-- Identify problem-areas
-- Monitor and gage effectiveness of Get-It-Done program overall
-- Monitor and gage effectiveness of program by Council district 
+### Decision: 
+Strategic/Operational – identify problem-areas, monitor and gage effectiveness of the Get-It-Done program overall and by Council district, using:
+•	Service request volume by period, type, council district
+•	Average response time from open to closed
+•	Open/closed deltas
+•	Service request volumes by type by council district
+
+### Decision timing:  
+Ongoing for the life of the app
+
+### Importance: 
+
+The dashboard can assist City Leadership in quickly identifying problem areas or problem periods, such as holidays, tourist season, etc.
+
+### What actions can be taken: 
+The dashboard is a monitoring tool for City Leadership allowing for further investigation, remedying or use a pro-active approach as appropriate for the issue.  For instance, during tourist season or while large conventions are in town, it is possible that mobile service requests for scooters spike.  If the City had historical data to confirm this assumption, the City could take a pro-active approach and request that the scooter service vendors increase their collection efforts during those times, thereby reducing the number of service requests, the amount of resouces the City would otherwise have to dedicate, and last but not least: reduce the nuisance factor for the public.
 
 ### What are we trying to show with the data
 
