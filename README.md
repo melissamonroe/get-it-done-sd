@@ -73,4 +73,4 @@ It is recommended to remove the above two items from the data and reevaluate the
 
 ![Dashboard concept](static/images/wireframe2.png)
 
-![Dashboard preview](static/images/git-it-on-preview.gif)
+![Dashboard preview](static/images/git-it-on-preview1.gif)
