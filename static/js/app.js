@@ -134,7 +134,6 @@ function populateDistricts() {
 function init() {
   populateServicesNames();
   populateDashboard();
-  populateDistricts();
 };
 
 init(); 
